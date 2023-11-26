@@ -1,7 +1,7 @@
 # Controle de Acesso a hospitais públicos.
 
 ## Descrição
-Este código implementa um sistema simples de controle de acesso para um consultório médico. Ele utiliza um motor servo para controlar a abertura e o fechamento de uma porta com base na detecção de presença por sensores de movimento.
+Este código implementa um sistema simples de controle de acesso para hospitais. Ele utiliza um motor servo para controlar a abertura e o fechamento de uma porta com base na detecção de presença por sensores de movimento.
 
 ## Hardware Utilizado
 - Arduino Uno R3
