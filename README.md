@@ -1,39 +1,38 @@
-# Controle de Acesso a hospitais públicos.
+# Sistema para Controle de Registro Hospitalar
 
 ## Descrição
-Este código implementa um sistema simples de controle de acesso para hospitais. Ele utiliza um motor servo para controlar a abertura e o fechamento de uma porta com base na detecção de presença por sensores de movimento.
+Este código implementa um sistema simples para o controle de registro hospitalar. Os usuários são autenticados por meio de um login e senha, e o sistema permite registrar, transferir, dar alta e visualizar a lista de pacientes.
 
-## Hardware Utilizado
-- Arduino Uno R3
-- Sensor de presença externo (PIR) no pino 14
-- Sensor de presença interno (PIR) no pino 12
-- Motor servo no pino 13
+## Dados de Login
+- Login Padrão: "admin"
+- Senha Padrão: "HapDame@2023"
 
 ## Funcionamento
-1. O programa fica em um loop infinito, verificando continuamente a detecção de presença nos sensores externo e interno.
-2. Se o sensor externo detecta movimento, o programa incrementa o contador de pacientes, exibe uma mensagem e abre a porta.
-3. Se o sensor interno detecta movimento, o programa decrementa o contador de pacientes, exibe uma mensagem e fecha a porta.
-4. Após cada detecção, o programa aguarda 5 segundos antes de permitir uma nova detecção.
-
-## Configuração do PWM
-- O PWM é configurado para o motor servo no pino 13 com uma frequência de 50 Hz.
+1. O programa inicia solicitando o login e a senha do usuário.
+2. Após o login bem-sucedido, o usuário tem acesso a um menu de opções.
+3. Opções disponíveis:
+   - **Registro de Paciente:** Registra um novo paciente, coletando nome e idade.
+   - **Paciente Transferido:** Simula a transferência de um paciente para outro hospital após triagem, visando que o mesmo não ocupou o hospital, independente do motivo.
+   - **Ver Lista Total de Pacientes:** Exibe a lista de todos os pacientes registrados.
+   - **Alta de Paciente:** Dá alta ao primeiro paciente na lista, se houver.
+   - **Sair:** Encerra o programa.
 
 ## Variáveis
-- `pir_outside_pin`: Pino do sensor de presença externo.
-- `pir_inside_pin`: Pino do sensor de presença interno.
-- `servo_pin`: Pino do motor servo.
-- `servo_pwm`: Objeto PWM para controlar o motor servo.
-- `pacient_counter`: Contador de pacientes.
+- `login_correto`: Login padrão para acesso ao sistema.
+- `senha_correta`: Senha padrão para acesso ao sistema.
+- `pacientes`: Lista para armazenar informações dos pacientes.
 
 ## Funções
-1. `abrir_porta()`: Abre gradualmente a porta controlada pelo motor servo.
-2. `fechar_porta()`: Fecha gradualmente a porta controlada pelo motor servo.
+1. `realizar_login()`: Realiza o processo de autenticação do usuário.
+2. `registro_paciente()`: Registra um novo paciente e exibe o número total de pacientes.
+3. `paciente_transferido()`: Simula a transferência de um paciente para outro hospital.
+4. `ver_lista_pacientes()`: Exibe a lista de todos os pacientes registrados.
+5. `alta_paciente()`: Dá alta ao primeiro paciente na lista, se houver.
 
 ## Observações
-- Certifique-se de conectar corretamente os componentes aos pinos especificados.
-- Este código é um exemplo básico e pode ser estendido para atender a requisitos específicos dos hospitais.
-- Antes de implementar ou utilizar este código, verifique se está em conformidade com as regulamentações locais e garanta que o sistema atenda aos padrões de segurança necessários.
+- O código é um exemplo básico e pode ser estendido para atender a requisitos específicos do sistema hospitalar.
+- Certifique-se de substituir os dados de login padrão por informações seguras em um ambiente de produção.
 
-## Integrantes
-- Marcelo Vieira de Melo - RM: 552953
-- Caio Hideki Cardenas - RM: 553630
+---
+
+**Observação:** Antes de implementar ou utilizar este código, verifique se está em conformidade com as regulamentações locais e garanta que o sistema atenda aos padrões de segurança necessários.
