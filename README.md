@@ -57,7 +57,7 @@ Encerra o programa.
 5. registro_paciente():
 - Função: Solicita informações de um novo paciente (nome e idade) e adiciona um dicionário representando o paciente à lista de pacientes.
 
-6. paciente_transferido():
+6. medico_indisponivel():
 - Função: Simula a transferência de um paciente para outro hospital após a triagem.
 
 7. ver_lista_pacientes():
