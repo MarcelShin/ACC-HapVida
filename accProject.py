@@ -1,41 +1,86 @@
-from machine import Pin, PWM
 import time
 
-# Configuração dos pinos
-pir_outside_pin = Pin(14, Pin.IN)  # Pino do sensor de presença do lado de fora
-pir_inside_pin = Pin(12, Pin.IN)   # Pino do sensor de presença do lado de dentro
-servo_pin = Pin(13)                # Pino do motor servo
+# Dados de login
+login_correto = "admin"
+senha_correta = "HapDame@2023"
 
-# Configuração do PWM para o servo
-servo_pwm = PWM(servo_pin, freq=50)
+# Lista para armazenar informações dos pacientes
+pacientes = []
 
-# Variável para contar o número de pacientes
-pacient_counter = 0
+def realizar_login():
+    # Solicitação de login e senha
+    login_digitado = input("Digite o login: ")
+    senha_digitada = input("Digite a senha: ")
 
-# Função para abrir a porta
-def abrir_porta():
-    for duty_cycle in range(40, 115, 1):
-        servo_pwm.duty(duty_cycle)
-        time.sleep_ms(15)
-    time.sleep(2)  # Aguarda 2 segundos com a porta aberta
-    fechar_porta()
+    # Verificação de login e senha
+    if login_digitado == login_correto and senha_digitada == senha_correta:
+        return True
+    else:
+        print("\nLogin ou senha incorretos. Tente novamente.")
+        return False
 
-# Função para fechar a porta
-def fechar_porta():
-    for duty_cycle in range(115, 40, -1):
-        servo_pwm.duty(duty_cycle)
-        time.sleep_ms(15)
+def registro_paciente():
+    global pacientes
+    paciente_nome = input("Digite o nome do paciente: ")
+    paciente_idade = input("Digite a idade do paciente: ")
 
-# Loop principal
-while True:
-    if pir_outside_pin.value() == 1:  # Sensor de fora acionado
-        pacient_counter += 1
-        print("Paciente entrou. Total de pacientes:", pacient_counter)
-        abrir_porta()
-        time.sleep(5)  # Aguarda 5 segundos antes de permitir nova detecção
-    elif pir_inside_pin.value() == 1:  # Sensor de dentro acionado
-        pacient_counter -= 1
-        print("Paciente saiu. Total de pacientes:", pacient_counter)
-        fechar_porta()
-        time.sleep(5)  # Aguarda 5 segundos antes de permitir nova detecção
-# Esqueleto do projeto
+    pacientes.append({"Nome": paciente_nome, "Idade": paciente_idade})
+    print(f"\nPaciente {paciente_nome} registrado com sucesso. O número total de paciente no momento é de: {len(pacientes)}.")
+
+def paciente_transferido():
+    print("\nPaciente transferido para outro hospital após a triagem.")
+
+def ver_lista_pacientes():
+    print("\nLista de Pacientes:")
+    for paciente in pacientes:
+        print(f"Nome: {paciente['Nome']}, Idade: {paciente['Idade']}")
+    print(f"Número total de pacientes: {len(pacientes)}")
+
+def alta_paciente():
+    global pacientes
+    if pacientes:
+        paciente_alta = pacientes.pop(0)
+        print(f"\nPaciente {paciente_alta['Nome']} recebeu alta.")
+    else:
+        print("\nNão há pacientes para dar alta.")
+
+# Função principal
+def main():
+    # Verificação de login
+    while not realizar_login():
+        pass  # Continua pedindo login até que seja bem-sucedido
+
+    while True:
+        # Menu de opções
+        print("\nOpções:")
+        print("1. Registro de paciente")
+        print("2. Paciente transferido")
+        print("3. Ver lista total de pacientes")
+        print("4. Alta de paciente")
+        print("5. Sair")
+
+        escolha = input("Escolha a opção (1-5): ")
+
+        if escolha == "1":
+            print("\n==============================\n")
+            registro_paciente()
+        elif escolha == "2":
+            print("\n==============================\n")
+            paciente_transferido()
+        elif escolha == "3":
+            print("\n==============================\n")
+            ver_lista_pacientes()
+        elif escolha == "4":
+            print("\n==============================\n")
+            alta_paciente()
+        elif escolha == "5":
+            print("\n==============================\n")
+            print("Saindo do programa. Até logo!")
+            break
+        else:
+            print("\n==============================\n")
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    print("Bem-vindo ao Sistema para Controle de Registro Hospitalar!\n")
+    main()
