@@ -1,4 +1,4 @@
-import time
+vimport time
 
 # Dados de login
 login_correto = "admin"
@@ -27,7 +27,7 @@ def registro_paciente():
     pacientes.append({"Nome": paciente_nome, "Idade": paciente_idade})
     print(f"\nPaciente {paciente_nome} registrado com sucesso. O número total de paciente no momento é de: {len(pacientes)}.")
 
-def paciente_transferido():
+def medico_indisponivel():
     print("\nPaciente transferido para outro hospital após a triagem.")
 
 def ver_lista_pacientes():
@@ -68,7 +68,7 @@ def main():
         # Menu de opções
         print("\nOpções:")
         print("1. Registro de paciente")
-        print("2. Paciente transferido")
+        print("2. Médico indisponível")
         print("3. Ver lista total de pacientes")
         print("4. Alta de paciente")
         print("5. Sair")
@@ -80,7 +80,7 @@ def main():
             registro_paciente()
         elif escolha == "2":
             print("\n==============================\n")
-            paciente_transferido()
+            medico_indisponivel()
         elif escolha == "3":
             print("\n==============================\n")
             ver_lista_pacientes()
