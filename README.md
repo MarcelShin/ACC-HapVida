@@ -1,37 +1,81 @@
 # Sistema para Controle de Registro Hospitalar
 
-## Descrição
-Este código implementa um sistema simples para o controle de registro hospitalar. Os usuários são autenticados por meio de um login e senha, e o sistema permite registrar, transferir, dar alta e visualizar a lista de pacientes.
+Bem-vindo ao Sistema para Controle de Registro Hospitalar! Este é um programa simples em Python para gerenciar o registro de pacientes em um hospital. Abaixo, você encontrará informações sobre como utilizar e entender o código.
 
-## Dados de Login
-- Login Padrão: "admin"
-- Senha Padrão: "HapDame@2023"
+## Requisitos
+Certifique-se de ter o Python instalado em seu ambiente antes de executar este programa
+
+## Funcionalidades
+1. Realizar Login
+Antes de acessar as funcionalidades do programa, é necessário realizar o login. O login padrão é definido como:
+- Login: admin
+- Senha: HapDame@2023
+
+2. Registro de Paciente
+Permite registrar informações de um paciente, incluindo nome e idade.
+
+3. Paciente Transferido
+Simula a transferência de um paciente para outro hospital após a triagem.
+
+4. Ver Lista Total de Pacientes
+Exibe a lista completa de pacientes registrados, incluindo nome e idade.
+
+5. Alta de Paciente
+Permite dar alta a um paciente escolhido da lista.
+
+6. Sair
+Encerra o programa.
 
 ## Funcionamento
 1. O programa inicia solicitando o login e a senha do usuário.
+
 2. Após o login bem-sucedido, o usuário tem acesso a um menu de opções.
+
 3. Opções disponíveis:
    - **Registro de Paciente:** Registra um novo paciente, coletando nome e idade.
-   - **Paciente Transferido:** Simula a transferência de um paciente para outro hospital após triagem, visando que o mesmo não ocupou o hospital, independente do motivo.
-   - **Ver Lista Total de Pacientes:** Exibe a lista de todos os pacientes registrados.
-   - **Alta de Paciente:** Dá alta ao primeiro paciente na lista, se houver.
+   - **Médico indisponível:** Simula a transferência de um paciente para outro hospital após triagem, logo, que o mesmo não ocupou o hospital, independente do motivo.
+   - **Ver Lista Total de Pacientes:** Exibe a lista de todos os pacientes registrados, juntamente com sua numeração.
+   - **Alta de Paciente:** Dá alta ao paciente na lista de acordo com a numeração escolhida, se houver.
    - **Sair:** Encerra o programa.
 
 ## Variáveis
-- `login_correto`: Login padrão para acesso ao sistema.
-- `senha_correta`: Senha padrão para acesso ao sistema.
-- `pacientes`: Lista para armazenar informações dos pacientes.
+1. login_correto:
+- Tipo: String
+- Função: Armazena o valor do login correto para autenticação no sistema.
 
-## Funções
-1. `realizar_login()`: Realiza o processo de autenticação do usuário.
-2. `registro_paciente()`: Registra um novo paciente e exibe o número total de pacientes.
-3. `paciente_transferido()`: Simula a transferência de um paciente para outro hospital.
-4. `ver_lista_pacientes()`: Exibe a lista de todos os pacientes registrados.
-5. `alta_paciente()`: Dá alta ao primeiro paciente na lista, se houver.
+2. senha_correta:
+- Tipo: String
+- Função: Armazena o valor da senha correta para autenticação no sistema.
+
+3. pacientes:
+- Tipo: Lista
+- Função: Armazena dicionários contendo informações dos pacientes, como nome e idade.
+
+4. realizar_login():
+- Função: Solicita o login e a senha do usuário, verifica se são corretos e retorna um valor booleano indicando se o login foi bem-sucedido.
+
+5. registro_paciente():
+- Função: Solicita informações de um novo paciente (nome e idade) e adiciona um dicionário representando o paciente à lista de pacientes.
+
+6. paciente_transferido():
+- Função: Simula a transferência de um paciente para outro hospital após a triagem.
+
+7. ver_lista_pacientes():
+- Função: Exibe a lista completa de pacientes registrados, mostrando seus nomes e idades.
+
+8. alta_paciente():
+- Função: Permite dar alta a um paciente escolhido da lista, removendo-o da lista de pacientes.
+
+9. main():
+- Função: Função principal que controla o fluxo do programa. Chama outras funções com base nas escolhas do usuário no menu.
+
+10. name == "main":
+- Condição: Verifica se o script está sendo executado como o programa principal.
+- Função: Inicializa o programa chamando a função principal (main()) quando o script é executado diretamente.
 
 ## Integrantes
-1. Marcelo Vieira de Melo - RM: 552953
-2. Caio Hideki Cardenas Ishizu – RM: 553630
+Marcelo Vieira de Melo - RM: 552953
+Caio Hideki Cardenas Ishizu – RM: 553630
 
 ## Observações
 - O código é um exemplo básico e pode ser estendido para atender a requisitos específicos do sistema hospitalar.
