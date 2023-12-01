@@ -29,6 +29,10 @@ Este código implementa um sistema simples para o controle de registro hospitala
 4. `ver_lista_pacientes()`: Exibe a lista de todos os pacientes registrados.
 5. `alta_paciente()`: Dá alta ao primeiro paciente na lista, se houver.
 
+## Integrantes
+1. Marcelo Vieira de Melo - RM: 552953
+2. Caio Hideki Cardenas Ishizu – RM: 553630
+
 ## Observações
 - O código é um exemplo básico e pode ser estendido para atender a requisitos específicos do sistema hospitalar.
 - Certifique-se de substituir os dados de login padrão por informações seguras em um ambiente de produção.
