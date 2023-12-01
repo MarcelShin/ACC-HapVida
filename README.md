@@ -14,8 +14,8 @@ Antes de acessar as funcionalidades do programa, é necessário realizar o login
 2. Registro de Paciente
 Permite registrar informações de um paciente, incluindo nome e idade.
 
-3. Paciente Transferido
-Simula a transferência de um paciente para outro hospital após a triagem.
+3. Médico indisponível
+Simula a transferência de um paciente para outro hospital após a triagem, devido a falta do médico da especialidade desejada.
 
 4. Ver Lista Total de Pacientes
 Exibe a lista completa de pacientes registrados, incluindo nome e idade.
