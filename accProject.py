@@ -39,8 +39,22 @@ def ver_lista_pacientes():
 def alta_paciente():
     global pacientes
     if pacientes:
-        paciente_alta = pacientes.pop(0)
-        print(f"\nPaciente {paciente_alta['Nome']} recebeu alta.")
+        print("\nLista de Pacientes:")
+        for i, paciente in enumerate(pacientes):
+            print(f"{i + 1}. Nome: {paciente['Nome']}, Idade: {paciente['Idade']}")
+
+        escolha = input("Escolha o número do paciente para dar alta (1-{0}): ".format(len(pacientes)))
+
+        try:
+            indice_paciente = int(escolha) - 1
+
+            if 0 <= indice_paciente < len(pacientes):
+                paciente_alta = pacientes.pop(indice_paciente)
+                print(f"\nPaciente {paciente_alta['Nome']} recebeu alta.")
+            else:
+                print("\nNúmero de paciente inválido. Tente novamente.")
+        except ValueError:
+            print("\nPor favor, insira um número válido.")
     else:
         print("\nNão há pacientes para dar alta.")
 
@@ -81,6 +95,6 @@ def main():
             print("\n==============================\n")
             print("Opção inválida. Tente novamente.")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     print("Bem-vindo ao Sistema para Controle de Registro Hospitalar!\n")
     main()
