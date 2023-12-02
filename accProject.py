@@ -8,6 +8,14 @@ senha_correta = "HapDame@2023"
 pacientes = []
 
 def realizar_login():
+    """
+    Realiza a autenticação do usuário no sistema.
+
+    Solicita o login e a senha, verifica se são corretos e retorna um valor booleano.
+
+    Returns:
+        bool: True se o login for bem-sucedido, False caso contrário.
+    """
     # Solicitação de login e senha
     login_digitado = input("Digite o login: ")
     senha_digitada = input("Digite a senha: ")
@@ -20,6 +28,11 @@ def realizar_login():
         return False
 
 def registro_paciente():
+    """
+    Registra as informações de um novo paciente.
+
+    Solicita o nome e a idade do paciente, e adiciona um dicionário representando o paciente à lista de pacientes.
+    """
     global pacientes
     paciente_nome = input("Digite o nome do paciente: ")
     paciente_idade = input("Digite a idade do paciente: ")
@@ -28,15 +41,24 @@ def registro_paciente():
     print(f"\nPaciente {paciente_nome} registrado com sucesso. O número total de paciente no momento é de: {len(pacientes)}.")
 
 def medico_indisponivel():
+    """
+    Simula a transferência de um paciente para outro hospital após a triagem.
+    """
     print("\nPaciente transferido para outro hospital após a triagem.")
 
 def ver_lista_pacientes():
+    """
+    Exibe a lista completa de pacientes registrados, mostrando seus nomes e idades.
+    """
     print("\nLista de Pacientes:")
     for paciente in pacientes:
         print(f"Nome: {paciente['Nome']}, Idade: {paciente['Idade']}")
     print(f"Número total de pacientes: {len(pacientes)}")
 
 def alta_paciente():
+    """
+    Permite dar alta a um paciente escolhido da lista, removendo-o da lista de pacientes.
+    """
     global pacientes
     if pacientes:
         print("\nLista de Pacientes:")
@@ -60,6 +82,11 @@ def alta_paciente():
 
 # Função principal
 def main():
+    """
+    Função principal que controla o fluxo do programa.
+
+    Exibe um menu de opções e chama outras funções com base nas escolhas do usuário.
+    """
     # Verificação de login
     while not realizar_login():
         pass  # Continua pedindo login até que seja bem-sucedido
