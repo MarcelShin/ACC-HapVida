@@ -74,8 +74,8 @@ Encerra o programa.
 - Função: Inicializa o programa chamando a função principal (main()) quando o script é executado diretamente.
 
 ## Integrantes
-Marcelo Vieira de Melo - RM: 552953
-Caio Hideki Cardenas Ishizu – RM: 553630
+- Marcelo Vieira de Melo - RM: 552953
+- Caio Hideki Cardenas Ishizu – RM: 553630
 
 ## Observações
 - O código é um exemplo básico e pode ser estendido para atender a requisitos específicos do sistema hospitalar.
