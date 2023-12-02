@@ -1,4 +1,4 @@
-vimport time
+import time
 
 # Dados de login
 login_correto = "admin"
